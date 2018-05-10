@@ -1,5 +1,5 @@
 FROM alpine:3.7 as builder
-ARG K8S_VERSION=__K8S_VERSION__
+ARG K8S_VERSION=v1.8.2
 RUN apk add -U ca-certificates \
     && rm -rf /var/cache/apk/* \
     && wget -O /kubectl https://storage.googleapis.com/kubernetes-release/release/$K8S_VERSION/bin/linux/amd64/kubectl \
