@@ -1,4 +1,15 @@
 sudo: required
 
+env:
+  - DOCKER_IMAGE=dockerce/kubectl
+  - Docker_TAG=v1.10.1
+
+services:
+  - docker
+
 script:
-  - bash script.sh
+  - docker build -f Dockerfile -t $DOCKER_IMAGE:$Docker_TAG .
+
+after_success:
+  - docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD
+  - docker push $DOCKER_IMAGE:$Docker_TAG

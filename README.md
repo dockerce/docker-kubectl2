@@ -1,25 +1,15 @@
-# Kubectl Docker Image
+# Kubectl Docker image
 
-[![Travis CI](https://travis-ci.org/dockerce/docker-kubectl2.svg?branch=master)](https://travis-ci.org/dockerce/docker-kubectl2)
+[![Travis CI](https://travis-ci.org/dockerce/docker-kubectl2.svg?branch=v1.10.1)](https://travis-ci.org/dockerce/docker-kubectl2)
 
-灵感来自于 [BuoyantIO/kubectl](https://github.com/BuoyantIO/kubectl)。
-
-## 操作
+## Build
 
 ```bash
-rm -rf .git
-git init
-git add --all
-git commit -m "kubectl docker image"
-git push origin master
+docker build -f Dockerfile -t dockerce/kubectl:v1.10.1 .
 ```
+
+## Run
 
 ```bash
-bash script.sh
+docker run -it --rm dockerce/kubectl:v1.10.1 --help
 ```
-
-## 参考
-
-* [Use multi-stage builds](https://docs.docker.com/develop/develop-images/multistage-build/)
-* [GitHub Releases Uploading](https://docs.travis-ci.com/user/deployment/releases)
-* [Pushing to github from TravisCI](https://gist.github.com/willprice/e07efd73fb7f13f917ea)
